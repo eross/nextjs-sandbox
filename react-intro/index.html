@@ -7,8 +7,20 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/jsx">
         const app = document.getElementById('app');
+
+        function HomePage() {
+            return <div>
+                <Header title="React"/>
+            </div>
+        }
+
+        function Header({ title }) {
+            console.log(title);
+            return <h1>{title}</h1>;
+        }
+
         const root = ReactDOM.createRoot(app);
-        root.render(<h1> Develop. Preview. Ship. </h1>);
+        root.render(<HomePage />);
     </script>
 </body>
 
