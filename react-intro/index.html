@@ -5,11 +5,17 @@
     <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
     <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <script type="text/jsx">
         const app = document.getElementById('app');
 
         function HomePage() {
             const names = ["Tom", "Dick", "Harry"];
+
+            const [likes, setLikes] = React.useState(0);
+            function handleClick() {
+                setLikes(likes + 1);
+            }
 
             return <div>
                 <Header title="Develop. Preview. Ship"/>
@@ -18,21 +24,19 @@
                         <li>{name}</li>
                     ))}
                 </ul>
-                <button onClick={handleClick}>Like</button>
+                <button onClick={handleClick}>Like({likes})</button>
             </div>
         }
 
-        function handleClick() {
-            console.log("increment the like count")
-        }
+   
 
         function Header({ title }) {
-            console.log(title);
             return <h1>{title}</h1>;
         }
 
         const root = ReactDOM.createRoot(app);
         root.render(<HomePage />);
+
     </script>
 </body>
 
