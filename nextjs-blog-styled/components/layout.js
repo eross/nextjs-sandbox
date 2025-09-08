@@ -11,7 +11,7 @@ export const siteTitle = 'Next.js Sample Project';
 
 export default function Layout({ children, home }) {
     return (
-        <div className={styles.container}>{children}
+        <div className={styles.container}>
             <Head>
                 <link rel="icon" href="/favicon.ico" />
                 <meta
@@ -62,6 +62,12 @@ export default function Layout({ children, home }) {
                     </>
                 )}
             </header>
+            <main>{children}</main>
+            {!home && (
+                <div className={styles.backtoHome}>
+                    <Link href="/">Back to home</Link>
+                </div>
+            )}
         </div>
     );
 }
