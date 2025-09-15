@@ -3,8 +3,18 @@ import Layout, { siteTitle } from '../components/layout';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import utilStyles from '../styles/utils.module.css';
+import { getSortedPostsData } from '../lib/posts';
 
-export default function Home() {
+export async function getStaticProps() {
+  const allPostsData = getSortedPostsData();
+  return {
+    props: {
+      allPostsData,
+    },
+  };
+}
+
+export default function Home({ allPostsData }) {
   return (
     <Layout home>
       <Head>
@@ -16,6 +26,22 @@ export default function Home() {
           (This is just a template sample - you can modify and customize.)
         </p>
       </section>
-    </Layout>
+      <section classname={`${utilStyles.headingMd} ${utilStyles.padding1px}`} >
+        <h2 className={utilStyles.headingLg}>Blog</h2>
+        <ul className={utilStyles.list}>
+          {allPostsData.map(({ id, date, title }) => (
+            <li className={utilStyles.listItem} key={id}>
+              {title}
+              <br />
+              {id}
+              <br />
+              {date}
+            </li>
+          ))}
+        </ul>
+
+
+      </section>
+    </Layout >
   )
 }
