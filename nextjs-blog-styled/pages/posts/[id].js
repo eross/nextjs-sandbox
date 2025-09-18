@@ -2,7 +2,6 @@ import Layout from '../../components/layout';
 import { getAllPostIds, getPostData } from '../../lib/posts';
 
 export default function Post({ postData }) {
-    console.log(postData);
     return (<Layout>
         {postData.title}
         <br />
@@ -11,7 +10,6 @@ export default function Post({ postData }) {
         {postData.date}
     </Layout>
     );
-
 }
 
 // next js will automatically call these functions
@@ -30,6 +28,5 @@ export async function getStaticProps({ params }) {
             postData
         }
     }
-
 }
 
