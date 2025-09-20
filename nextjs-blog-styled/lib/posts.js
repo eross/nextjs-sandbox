@@ -38,7 +38,7 @@ export function getSortedPostsData() {
 
 export function getAllPostIds() {
     const fileNames = fs.readdirSync(postsDirectory);
-
+    console.log("getAllPostIds", fileNames);
     return fileNames.map((fileName) => {
         return {
             params: {
