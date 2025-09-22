@@ -1,5 +1,5 @@
 ---
-title: "When to Use Static Generation v.s. Server-side Rendering"
+title: "Pre-rendering"
 date: "2023-08-24"
 ---
 
